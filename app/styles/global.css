@@ -1,0 +1,23 @@
+:root {
+  /* fonts */
+  --font-family: 'Roboto', sans-serif;
+
+  /* colors */
+  --font-color: #000000;
+  --main-background-color: #f3f3f7;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+
+  background-color: var(--main-background-color);
+}
