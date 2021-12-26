@@ -9,6 +9,9 @@ import {
 } from "remix";
 import type { MetaFunction, LinksFunction } from "remix";
 
+// Components
+import Header, { links as headerLinks } from './components/header';
+
 // Styles
 import globalStyles from './styles/global.css';
 
@@ -22,6 +25,7 @@ export const links: LinksFunction = () => {
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' },
     { rel: 'stylesheet', href: globalStyles },
+    ...headerLinks(),
   ];
 }
 
@@ -35,6 +39,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         <main>
           <Outlet />
         </main>
