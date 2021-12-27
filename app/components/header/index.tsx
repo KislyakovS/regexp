@@ -4,7 +4,7 @@ import { FC } from 'react';
 // Components
 import Box, { links as boxLinks } from '../box';
 import Navigation, { links as navigationLinks } from '../navigation';
-import Search, { links as searchLinks } from '../search';
+import Input from '../input';
 
 // Types
 import type { LinksFunction } from 'remix';
@@ -16,7 +16,6 @@ export const links: LinksFunction = () => {
   return [
     ...boxLinks(),
     ...navigationLinks(),
-    ...searchLinks(),
     { rel: 'stylesheet', href: styles }
   ];
 }
@@ -33,7 +32,7 @@ const Header: FC = () => {
             }
           ]}
         />
-        <Search />
+        <Input placeholder="Search..." />
       </Box>
     </header>
   );
