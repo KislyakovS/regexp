@@ -5,6 +5,8 @@
   /* colors */
   --font-color: #000000;
   --main-background-color: #f3f3f7;
+
+  --border-radius: 5px;
 }
 
 *, *::after, *::before {
