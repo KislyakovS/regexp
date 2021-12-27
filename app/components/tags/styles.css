@@ -1,0 +1,37 @@
+.tags {
+  display: flex;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.tags li {
+  flex: 1 1;
+}
+
+.tags__link {
+  display: block;
+  padding: 10px;
+
+  color: #2b2b2b;
+  text-decoration: none;
+  text-align: center;
+
+  background-color: #f4f4ff;
+  border-radius: var(--border-radius);
+
+  transition: background-color .3s;
+}
+
+.tags__link:hover,
+.tags__link:focus {
+  background-color: #eeeefb;
+}
+
+.tags--primary .tags__link,
+.tags--primary .tags__link:hover,
+.tags--primary .tags__link:focus {
+  background-color: #fff4f4;
+}
