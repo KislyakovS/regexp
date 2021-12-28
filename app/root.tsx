@@ -11,6 +11,7 @@ import type { MetaFunction, LinksFunction } from "remix";
 
 // Components
 import Header, { links as headerLinks } from './components/header';
+import { links as cardLinks } from './components/card';
 
 // Styles
 import globalStyles from './styles/global.css';
@@ -26,6 +27,7 @@ export const links: LinksFunction = () => {
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap' },
     { rel: 'stylesheet', href: globalStyles },
     ...headerLinks(),
+    ...cardLinks(),
   ];
 }
 
