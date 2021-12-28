@@ -1,7 +1,7 @@
 // Types
 import type { Type } from './constants';
 
-type Tag = {
+export type Tag = {
   label: string,
   link?: string,
 }
