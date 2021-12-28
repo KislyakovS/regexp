@@ -34,6 +34,10 @@ body {
   border-radius: 50px;
 }
 
+.input--pointer {
+  cursor: pointer;
+}
+
 .input[readonly],
 .input[display] {
   background-color: #fafafc;
