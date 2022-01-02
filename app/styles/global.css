@@ -48,3 +48,13 @@ body {
   padding: 20px;
   margin: 0 auto;
 }
+
+.regexps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  margin: 0px;
+  padding: 0px;
+
+  list-style: none;
+}
