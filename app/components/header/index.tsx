@@ -9,6 +9,9 @@ import Input from '../input';
 // Types
 import type { LinksFunction } from 'remix';
 
+// Constants
+import { menu } from './constants';
+
 // Styles
 import styles from './styles.css';
 
@@ -25,12 +28,7 @@ const Header: FC = () => {
     <header className="header">
       <Box className="header__wrapper">
         <Navigation
-          menu={[
-            {
-              link: '/',
-              label: 'Home',
-            }
-          ]}
+          menu={menu}
         />
         <Input placeholder="Search..." />
       </Box>
