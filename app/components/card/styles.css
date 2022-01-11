@@ -26,6 +26,6 @@
   text-align: center;
 }
 
-.card__tags.tags {
-  margin-top: 5px;
+.card__results {
+  margin-top: 10px;
 }

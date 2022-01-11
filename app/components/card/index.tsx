@@ -31,6 +31,7 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Tag[]>([]);
   const pattern = useMemo(() => stringToRegexp(regexp), [regexp]);
+  const firstTags = useMemo(() => tags.split(',').slice(0, 3).map(label => ({ label, link: label })), [tags]);
 
   const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -51,7 +52,8 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
       <Input defaultValue={regexp} readOnly isCopy={true} className="card__input" />
       <Input placeholder={example} value={value} onChange={onChangeInput} className="card__input" />
       <div>
-        {result.length !== 0 && <Tags type="primary" list={result} />}
+        {firstTags.length !== 0 && <Tags list={firstTags} />}
+        {result.length !== 0 && <Tags className="card__results" type="primary" list={result} />}
       </div>
     </div>
   </div>

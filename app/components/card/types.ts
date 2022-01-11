@@ -6,5 +6,5 @@ export interface Props extends Default {
   title: string;
   regexp: string;
   example: string;
-  tags: string[];
+  tags: string;
 }
