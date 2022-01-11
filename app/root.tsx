@@ -17,7 +17,7 @@ import { links as cardLinks } from './components/card';
 import globalStyles from './styles/global.css';
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: 'Regexp - Pattern' };
 };
 
 export const links: LinksFunction = () => {
