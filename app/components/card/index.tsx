@@ -31,7 +31,7 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Tag[]>([]);
   const pattern = useMemo(() => stringToRegexp(regexp), [regexp]);
-  const firstTags = useMemo(() => tags.split(',').slice(0, 3).map(label => ({ label, link: label })), [tags]);
+  const firstTags = useMemo(() => tags.split(',').slice(0, 3).map(label => ({ label, link: `/${label}` })), [tags]);
 
   const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
