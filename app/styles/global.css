@@ -58,3 +58,22 @@ body {
 
   list-style: none;
 }
+
+.not-found {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.not-found__code {
+  margin: 0px;
+  font-size: 18px;
+  color: #838383;
+}
+
+.not-found__message {
+  margin: 5px 0px 0px 0px;
+  font-size: 48px;
+}
