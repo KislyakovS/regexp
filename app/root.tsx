@@ -1,24 +1,21 @@
 // Core
 import {
   Links,
-  LiveReload,
-  Meta,
   Outlet,
+  LiveReload,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from "remix";
-import type { MetaFunction, LinksFunction } from "remix";
+import { FC, ReactNode } from 'react';
+import type { LinksFunction } from "remix";
 
 // Components
 import Header, { links as headerLinks } from './components/header';
+import NotFound from './components/not-found';
 import { links as cardLinks } from './components/card';
 
 // Styles
 import globalStyles from './styles/global.css';
-
-export const meta: MetaFunction = () => {
-  return { title: 'Regexp - Pattern' };
-};
 
 export const links: LinksFunction = () => {
   return [
@@ -31,20 +28,25 @@ export const links: LinksFunction = () => {
   ];
 }
 
-export default function App() {
+interface Props {
+  title: string;
+  children: ReactNode;
+}
+
+const Document: FC<Props> = ({ title, children }) => {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
+        <title>{title}</title>
         <Links />
       </head>
       <body>
         <div className="container">
           <Header />
           <main>
-            <Outlet />
+            {children}
           </main>
         </div>
         <ScrollRestoration />
@@ -54,3 +56,19 @@ export default function App() {
     </html>
   );
 }
+
+export const CatchBoundary: FC = () => {
+  return (
+    <Document title="Whoops!">
+      <NotFound />
+    </Document>
+  )
+}
+
+const App: FC = () => (
+  <Document title="Regexp - Pattern">
+    <Outlet />
+  </Document>
+);
+
+export default App;
