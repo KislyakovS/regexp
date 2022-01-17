@@ -3,6 +3,7 @@ import { useLoaderData } from 'remix';
 
 // Components
 import Regexps from '../components/regexps';
+import Empty from '../components/empty';
 
 // Types
 import type { LoaderFunction } from 'remix';
@@ -27,5 +28,5 @@ export const loader: LoaderFunction = ({ params }) => {
 export default () => {
   const regexps = useLoaderData();
 
-  return <Regexps regexps={regexps} />
+  return regexps.length === 0 ? <Empty /> : <Regexps regexps={regexps} />
 }
