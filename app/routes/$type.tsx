@@ -2,14 +2,21 @@
 import { useLoaderData } from 'remix';
 
 // Components
-import Regexps from '../components/regexps';
-import Empty from '../components/empty';
+import Regexps from '~/components/regexps';
+import Empty from '~/components/empty';
 
 // Types
 import type { LoaderFunction } from 'remix';
+import type Regexp from '~/types/regexp';
 
 // Assets
 import regexps from '~/assets/regexp.json';
+
+// Bus
+import useContextSearch from '~/bus/search/hooks/use-context-search';
+
+// Utils
+import { searchRegexp } from '~/utils';
 
 export const loader: LoaderFunction = ({ params }) => {
   const { type } = params;
@@ -26,7 +33,10 @@ export const loader: LoaderFunction = ({ params }) => {
 }
 
 export default () => {
-  const regexps = useLoaderData();
+  const [search] = useContextSearch();
+  const regexps = useLoaderData<Regexp[]>();
 
-  return regexps.length === 0 ? <Empty /> : <Regexps regexps={regexps} />
+  const result = searchRegexp(search, regexps);
+
+  return result.length === 0 ? <Empty /> : <Regexps regexps={result} />
 }

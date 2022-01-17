@@ -12,6 +12,9 @@ import type { LinksFunction } from 'remix';
 // Constants
 import { menu } from './constants';
 
+// Bus
+import useContextSearch from '~/bus/search/hooks/use-context-search';
+
 // Styles
 import styles from './styles.css';
 
@@ -24,13 +27,15 @@ export const links: LinksFunction = () => {
 }
 
 const Header: FC = () => {
+  const [search, onChangeSearch] = useContextSearch();
+
   return (
     <header className="header">
       <Box className="header__wrapper">
         <Navigation
           menu={menu}
         />
-        <Input placeholder="Search..." />
+        <Input placeholder="Search..." onChange={onChangeSearch} value={search} />
       </Box>
     </header>
   );
