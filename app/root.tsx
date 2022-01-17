@@ -14,6 +14,10 @@ import Header, { links as headerLinks } from './components/header';
 import NotFound from './components/not-found';
 import { links as cardLinks } from './components/card';
 
+// Bus
+import SearchContext from './bus/search/context';
+import useSearch from './bus/search/hooks/use-search';
+
 // Styles
 import globalStyles from './styles/global.css';
 
@@ -34,6 +38,8 @@ interface Props {
 }
 
 const Document: FC<Props> = ({ title, children }) => {
+  const [search, onChangeSearch] = useSearch();
+
   return (
     <html lang="en">
       <head>
@@ -44,10 +50,12 @@ const Document: FC<Props> = ({ title, children }) => {
       </head>
       <body>
         <div className="container">
-          <Header />
-          <main>
-            {children}
-          </main>
+          <SearchContext.Provider value={[search, onChangeSearch]}>
+            <Header />
+            <main>
+              {children}
+            </main>
+          </SearchContext.Provider>
         </div>
         <ScrollRestoration />
         <Scripts />
