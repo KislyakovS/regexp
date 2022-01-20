@@ -6,30 +6,18 @@ import Box from '../box';
 import Navigation from '../navigation';
 import Input from '../input';
 
-// Types
-import type { LinksFunction } from 'remix';
-
 // Constants
 import { menu } from './constants';
 
 // Bus
 import useContextSearch from '~/bus/search/hooks/use-context-search';
 
-// Styles
-import styles from './styles.css';
-
-export const links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: styles }
-  ];
-}
-
 const Header: FC = () => {
   const [search, onChangeSearch] = useContextSearch();
 
   return (
-    <header className="header">
-      <Box className="header__wrapper">
+    <header className="mb-5">
+      <Box className="flex items-center justify-between px-5">
         <Navigation
           menu={menu}
         />

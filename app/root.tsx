@@ -10,7 +10,7 @@ import { FC, ReactNode } from 'react';
 import type { LinksFunction } from "remix";
 
 // Components
-import Header, { links as headerLinks } from './components/header';
+import Header from './components/header';
 import NotFound from './components/not-found';
 import { links as cardLinks } from './components/card';
 
@@ -19,7 +19,6 @@ import SearchContext from './bus/search/context';
 import useSearch from './bus/search/hooks/use-search';
 
 // Styles
-// import globalStyles from './styles/global.css';
 import tailwind from './tailwind.css';
 
 export const links: LinksFunction = () => {
@@ -27,9 +26,7 @@ export const links: LinksFunction = () => {
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap' },
-    // { rel: 'stylesheet', href: globalStyles },
     { rel: 'stylesheet', href: tailwind },
-    ...headerLinks(),
     ...cardLinks(),
   ];
 }
