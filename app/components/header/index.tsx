@@ -2,7 +2,7 @@
 import { FC } from 'react';
 
 // Components
-import Box, { links as boxLinks } from '../box';
+import Box from '../box';
 import Navigation from '../navigation';
 import Input from '../input';
 
@@ -20,7 +20,6 @@ import styles from './styles.css';
 
 export const links: LinksFunction = () => {
   return [
-    ...boxLinks(),
     { rel: 'stylesheet', href: styles }
   ];
 }
