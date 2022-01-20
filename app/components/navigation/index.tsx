@@ -1,35 +1,24 @@
 // Core
-import { FC, useCallback } from 'react';
-import clsx from 'clsx';
+import { FC } from 'react';
 
 // Components
 import { NavLink } from 'remix';
 
 // types
 import type { Props, MenuItem } from './types';
-import type { LinksFunction } from 'remix';
-
-// Styles
-import styles from './styles.css';
-
-export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: styles }]
-}
 
 const Navigation: FC<Props> = ({ menu, className, ...props }) => {
-  const navigationClasses = clsx(className, 'navigation');
-
-  const createItem = useCallback(({ link, label }: MenuItem) => {
+  const createItem = ({ link, label }: MenuItem) => {
     return (
       <li key={link}>
-        <NavLink to={link} className="navigation__link">{label}</NavLink>
+        <NavLink to={link} className="block px-10 py-5 hover:bg-slate-50 focus-visible:bg-slate-100 transition">{label}</NavLink>
       </li>
     );
-  }, [])
+  }
 
   return (
-    <nav className={navigationClasses} {...props}>
-      <ul className="navigation__list">
+    <nav {...props}>
+      <ul className="flex items-center">
         {menu.map(createItem)}
       </ul>
     </nav>
