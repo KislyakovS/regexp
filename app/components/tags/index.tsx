@@ -12,9 +12,9 @@ import type { Props, Tag } from './types';
 import { types } from './constants';
 
 const Tags: FC<Props> = ({ className, type = types.default, list, ...props }) => {
-  const tagsClasses = clsx(className, 'flex gap-1');
+  const tagsClasses = clsx(className, 'flex gap-2');
   const linkClasses = clsx(
-    'block p-3 text-center no-underline rounded-md transition',
+    'block p-2 text-center no-underline rounded-md transition',
     type === types.primary ? 'bg-red' : 'bg-gray-100 hover:bg-gray-200 focus-visible:bg-gray-200'
   )
 

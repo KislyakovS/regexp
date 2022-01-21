@@ -11,7 +11,7 @@ const Navigation: FC<Props> = ({ menu, className, ...props }) => {
   const createItem = ({ link, label }: MenuItem) => {
     return (
       <li key={link}>
-        <NavLink to={link} className="block px-10 py-5 hover:bg-slate-50 focus-visible:bg-slate-100 transition">{label}</NavLink>
+        <NavLink to={link} className="block px-10 py-5 hover:bg-gray-100/50 focus-visible:bg-gray-100/50 transition">{label}</NavLink>
       </li>
     );
   }

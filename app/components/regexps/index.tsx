@@ -9,7 +9,7 @@ import type { Props } from './types';
 
 const Regexps: FC<Props> = ({ regexps }) => {
   return (
-    <ul className="regexps">
+    <ul className="grid grid-cols-3 gap-7">
       {regexps.map(({ title, regexp, example, tags }) => (
         <li key={regexp}>
           <Card

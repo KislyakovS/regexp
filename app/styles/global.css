@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.active {
+  @apply bg-gray-100/50;
+  @apply cursor-default;
+}
+
 /* :root {
   --font-family: 'Roboto', sans-serif;
 

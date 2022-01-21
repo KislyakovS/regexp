@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import type { Props } from './types';
 
 const Input = forwardRef<HTMLInputElement, Props>(({ className, isCopy, ...props }, ref) => {
-  const inputClasses = clsx(className, 'h-10 border rounded-[50px] px-5 read-only:bg-gray-100 disabled:bg-gray-100', isCopy && 'cursor-pointer');
+  const inputClasses = clsx(className, 'h-10 text-xs border rounded-[50px] px-5 read-only:bg-gray-100 disabled:bg-gray-100', isCopy && 'cursor-pointer');
 
   const onClickCopy = useCallback((event: MouseEvent<HTMLInputElement>) => {
     const { value } = event.target as HTMLInputElement
