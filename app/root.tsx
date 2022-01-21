@@ -45,7 +45,7 @@ const Document: FC<Props> = ({ title, children }) => {
         <title>{title}</title>
         <Links />
       </head>
-      <body className="bg-gray-500">
+      <body className="bg-gray-500 font-main">
         <div className="max-w-screen-xl mx-auto px-4 py-7">
           <SearchContext.Provider value={[search, onChangeSearch]}>
             <Header />

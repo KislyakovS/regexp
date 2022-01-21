@@ -12,10 +12,10 @@ const Empty: FC = () => {
   const srcImage = `/emoji/${emoji || randomNumber(1, 10)}.png`
 
   return (
-    <div className="empty">
-      <img src={srcImage} />
-      <h2 className="empty__title">{title}</h2>
-      <p className="empty__message">{text}</p>
+    <div className="center text-center">
+      <img src={srcImage} className="mx-auto" />
+      <h2 className="mt-2 mb-3 text-4xl font-bold">{title}</h2>
+      <p className="text-2xl text-gray-900">{text}</p>
     </div>
   )
 }

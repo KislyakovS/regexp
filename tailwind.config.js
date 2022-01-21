@@ -1,6 +1,9 @@
 module.exports = {
   content: ["./app/**/*.{ts,tsx}"],
   theme: {
+    fontFamily: {
+      main: 'Roboto, sans-serif',
+    },
     colors: {
       white: '#fff',
       gray: {
