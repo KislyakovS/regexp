@@ -7,25 +7,21 @@ import { Link } from 'remix';
 
 // Types
 import type { Props, Tag } from './types';
-import type { LinksFunction } from 'remix';
 
 // Utils
 import { types } from './constants';
 
-// Styles
-import styles from './styles.css';
-
-export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: styles }];
-}
-
 const Tags: FC<Props> = ({ className, type = types.default, list, ...props }) => {
-  const tagsClasses = clsx(className, 'tags', type === types.primary && 'tags--primary');
+  const tagsClasses = clsx(className, 'flex gap-1');
+  const linkClasses = clsx(
+    'block p-3 text-center no-underline rounded-md transition',
+    type === types.primary ? 'bg-red' : 'bg-gray-100 hover:bg-gray-200 focus-visible:bg-gray-200'
+  )
 
   const createItem = ({ label, link }: Tag) => {
     return (
-      <li key={label}>
-        {link ? <Link to={link} className="tags__link">{label}</Link> : <span className="tags__link">{label}</span>}
+      <li key={label} className="flex-1">
+        {link ? <Link to={link} className={linkClasses}>{label}</Link> : <span className={linkClasses}>{label}</span>}
       </li>
     )
   }
