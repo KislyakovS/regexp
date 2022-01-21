@@ -1,33 +1,20 @@
 // Core
 import { FC, useState, useCallback, useMemo } from 'react';
-import clsx from 'clsx';
 
 // Components
 import Input from '../input';
-import Tags, { links as tagsLinks } from '../tags';
+import Tags from '../tags';
+import Box from '../box';
 
 // Types
 import type { Props } from './types';
-import type { LinksFunction } from 'remix';
 import type { ChangeEvent } from 'react';
 import type { Tag } from '../tags/types';
 
 // Utils
 import { stringToRegexp } from '~/utils';
 
-// Styles
-import styles from './styles.css';
-
-export const links: LinksFunction = () => {
-  return [
-    ...tagsLinks(),
-    { rel: 'stylesheet', href: styles }
-  ];
-}
-
 const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
-  const cardClasses = clsx(className, 'white-box', 'card');
-
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Tag[]>([]);
   const pattern = useMemo(() => stringToRegexp(regexp), [regexp]);
@@ -44,19 +31,21 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
     }
   }, [pattern]);
 
-  return <div className={cardClasses}>
-    <div className="card__header">
-      <span className="card__title">{title}</span>
-    </div>
-    <div className="card__body">
-      <Input defaultValue={regexp} readOnly isCopy={true} className="card__input" />
-      <Input placeholder={example} value={value} onChange={onChangeInput} className="card__input" />
-      <div>
-        {firstTags.length !== 0 && <Tags list={firstTags} />}
-        {result.length !== 0 && <Tags className="card__results" type="primary" list={result} />}
+  return (
+    <Box className={className}>
+      <div className="p-5 border-b-2">
+        <span className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">{title}</span>
       </div>
-    </div>
-  </div>
+      <div className="p-5 flex flex-col gap-5">
+        <Input defaultValue={regexp} readOnly isCopy={true} className="text-center" />
+        <Input placeholder={example} value={value} onChange={onChangeInput} className="text-center" />
+        <div>
+          {firstTags.length !== 0 && <Tags list={firstTags} />}
+          {result.length !== 0 && <Tags className="mt-3" type="primary" list={result} />}
+        </div>
+      </div>
+    </Box>
+  )
 };
 
 export default Card;

@@ -12,7 +12,6 @@ import type { LinksFunction } from "remix";
 // Components
 import Header from './components/header';
 import NotFound from './components/not-found';
-import { links as cardLinks } from './components/card';
 
 // Bus
 import SearchContext from './bus/search/context';
@@ -27,7 +26,6 @@ export const links: LinksFunction = () => {
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap' },
     { rel: 'stylesheet', href: tailwind },
-    ...cardLinks(),
   ];
 }
 
