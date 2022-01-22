@@ -1,5 +1,6 @@
 // Core
 import { FC, useState, useCallback, useMemo } from 'react';
+import clsx from 'clsx';
 
 // Components
 import Input from '../input';
@@ -18,7 +19,16 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<Tag[]>([]);
   const pattern = useMemo(() => stringToRegexp(regexp), [regexp]);
-  const firstTags = useMemo(() => tags.split(',').slice(0, 3).map(label => ({ label, link: `/${label}` })), [tags]);
+  const tagsArray = useMemo(() => tags.split(','), [tags]);
+  const firstTags = useMemo(() => tagsArray.slice(0, 3).map(label => ({ label, link: `/${label}` })), [tagsArray]);
+
+  const cardHeaderClasses = clsx('p-5 border-b-2',
+    tagsArray.includes('mail') && 'border-b-[#ffd07a]',
+    tagsArray.includes('numbers') && 'border-b-[#ff8c8c]',
+    tagsArray.includes('strings') && 'border-b-[#d366d5]',
+    tagsArray.includes('date') && 'border-b-[#669ed5]',
+    tagsArray.includes('uri') && 'border-b-[#7cc0ff]',
+  )
 
   const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -33,7 +43,7 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
 
   return (
     <Box className={className}>
-      <div className="p-5 border-b-2">
+      <div className={cardHeaderClasses}>
         <span className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">{title}</span>
       </div>
       <div className="p-5 flex flex-col gap-5">
