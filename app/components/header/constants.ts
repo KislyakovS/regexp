@@ -24,6 +24,10 @@ export const menu = [
     label: 'URI',
   },
   {
+    link: '/html',
+    label: 'HTML',
+  },
+  {
     link: '/other',
     label: 'Other',
   }

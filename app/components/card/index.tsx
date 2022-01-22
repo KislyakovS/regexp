@@ -28,6 +28,7 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
     tagsArray.includes('strings') && 'border-b-[#d366d5]',
     tagsArray.includes('date') && 'border-b-[#669ed5]',
     tagsArray.includes('uri') && 'border-b-[#7cc0ff]',
+    tagsArray.includes('html') && 'border-b-[#22c55e]',
   )
 
   const onChangeInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
