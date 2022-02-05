@@ -14,8 +14,11 @@ import Header from './components/header';
 import NotFound from './components/not-found';
 
 // Bus
-import SearchContext from './bus/search/context';
-import useSearch from './bus/search/hooks/use-search';
+// import SearchContext from './bus/search/context';
+// import useSearch from './bus/search/hooks/use-search';
+
+// Context
+import SearchContextProvider from './context/search/provider';
 
 // Styles
 import tailwind from './tailwind.css';
@@ -35,7 +38,7 @@ interface Props {
 }
 
 const Document: FC<Props> = ({ title, children }) => {
-  const [search, onChangeSearch] = useSearch();
+  // const [search, onChangeSearch] = useSearch();
 
   return (
     <html lang="en">
@@ -47,12 +50,14 @@ const Document: FC<Props> = ({ title, children }) => {
       </head>
       <body className="bg-gray-500 font-main">
         <div className="max-w-screen-xl mx-auto px-4 py-7">
-          <SearchContext.Provider value={[search, onChangeSearch]}>
+          {/* <SearchContext.Provider value={[search, onChangeSearch]}> */}
+          <SearchContextProvider>
             <Header />
             <main>
               {children}
             </main>
-          </SearchContext.Provider>
+          </SearchContextProvider>
+          {/* </SearchContext.Provider> */}
         </div>
         <ScrollRestoration />
         <Scripts />

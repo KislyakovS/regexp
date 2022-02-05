@@ -12,8 +12,8 @@ import type Regexp from '~/types/regexp';
 // Assets
 import regexps from '~/assets/regexp.json';
 
-// Bus
-import useContextSearch from '~/bus/search/hooks/use-context-search';
+// Context
+import useSearchState from '~/context/search/hooks/use-search-state';
 
 // Utils
 import { searchRegexp } from '~/utils';
@@ -33,7 +33,7 @@ export const loader: LoaderFunction = ({ params }) => {
 }
 
 export default () => {
-  const [search] = useContextSearch();
+  const search = useSearchState();
   const regexps = useLoaderData<Regexp[]>();
 
   const result = searchRegexp(search, regexps);

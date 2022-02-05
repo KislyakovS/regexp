@@ -5,14 +5,14 @@ import Empty from '~/components/empty';
 // Assets
 import regexps from '~/assets/regexp.json';
 
-// Bus
-import useContextSearch from '~/bus/search/hooks/use-context-search';
+// Context
+import useSearchState from '~/context/search/hooks/use-search-state';
 
 // Utils
 import { searchRegexp } from '~/utils';
 
 export default () => {
-  const [search] = useContextSearch();
+  const search = useSearchState();
 
   const result = searchRegexp(search, regexps);
 
