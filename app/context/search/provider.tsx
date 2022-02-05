@@ -1,5 +1,5 @@
 // Core
-import { FC, ReactNode, useState } from 'react';
+import { FC, useState } from 'react';
 
 // Context
 import SearchContext from './context';
