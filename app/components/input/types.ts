@@ -1,6 +1,6 @@
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { InputHTMLAttributes } from 'react';
 
-type Default = DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type Default = InputHTMLAttributes<HTMLInputElement>
 
 export interface Props extends Default {
   isCopy?: boolean;

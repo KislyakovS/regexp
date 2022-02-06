@@ -15,7 +15,6 @@ const Input = forwardRef<HTMLInputElement, Props>(({ className, isCopy, ...props
     if (props.onClick) {
       props.onClick(event);
     }
-
   }, [])
 
   return <input

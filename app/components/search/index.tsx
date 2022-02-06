@@ -1,5 +1,5 @@
 // Core
-import { FC, useCallback } from 'react';
+import { FC, useCallback, ChangeEvent } from 'react';
 
 // Components
 import Input from '../input';
@@ -12,7 +12,7 @@ const Search: FC = () => {
   const search = useSearchState();
   const setSearch = useSearchActions();
 
-  const onChangeSearch = useCallback((event) => {
+  const onChangeSearch = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     if (setSearch) {
       setSearch(event.target.value);
     }
