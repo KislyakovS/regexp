@@ -1,6 +1,6 @@
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 
-type Default = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Default = HTMLAttributes<HTMLDivElement>;
 
 export interface Props extends Default {
   title: string;

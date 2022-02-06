@@ -1,8 +1,8 @@
 // Types
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 import type Regexp from '~/types/regexp';
 
-type Default = DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
+type Default = HTMLAttributes<HTMLUListElement>;
 
 export interface Props extends Default {
   regexps: Regexp[]

@@ -1,8 +1,8 @@
 // Types
 import type { Type } from './constants';
-import { HTMLAttributes, DetailedHTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 
-type Default = DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
+type Default = HTMLAttributes<HTMLUListElement>;
 
 export type Tag = {
   label: string,
