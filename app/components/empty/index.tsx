@@ -13,7 +13,7 @@ const Empty: FC = () => {
 
   return (
     <div className="center text-center">
-      <img src={srcImage} className="mx-auto" />
+      <img src={srcImage} className="mx-auto" alt={text} />
       <h2 className="mt-2 mb-3 text-4xl font-bold">{title}</h2>
       <p className="text-2xl text-gray-900">{text}</p>
     </div>
