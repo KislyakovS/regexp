@@ -14,6 +14,7 @@ import type { Tag } from '../tags/types';
 
 // Utils
 import { stringToRegexp } from '~/utils';
+import { TagType } from '../tags/constants';
 
 const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
   const [value, setValue] = useState('');
@@ -52,7 +53,7 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
         <Input placeholder={example} value={value} onChange={onChangeInput} className="text-center" />
         <div>
           {firstTags.length !== 0 && <Tags list={firstTags} />}
-          {result.length !== 0 && <Tags className="mt-3" type="primary" list={result} />}
+          {result.length !== 0 && <Tags className="mt-3" type={TagType.PRIMARY} list={result} />}
         </div>
       </div>
     </Box>

@@ -9,13 +9,13 @@ import { Link } from 'remix';
 import type { Props, Tag } from './types';
 
 // Utils
-import { types } from './constants';
+import { TagType } from './constants';
 
-const Tags: FC<Props> = ({ className, type = types.default, list, ...props }) => {
+const Tags: FC<Props> = ({ className, type = TagType.DEFAULT, list, ...props }) => {
   const tagsClasses = clsx(className, 'flex gap-2');
   const linkClasses = clsx(
     'block p-2 text-center no-underline rounded-md transition',
-    type === types.primary ? 'bg-red' : 'bg-gray-100 hover:bg-gray-200 focus-visible:bg-gray-200'
+    type === TagType.PRIMARY ? 'bg-red' : 'bg-gray-100 hover:bg-gray-200 focus-visible:bg-gray-200'
   )
 
   const createItem = ({ label, link }: Tag) => {

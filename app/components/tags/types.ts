@@ -1,5 +1,5 @@
 // Types
-import type { Type } from './constants';
+import type { TagType } from './constants';
 import { HTMLAttributes } from 'react';
 
 type Default = HTMLAttributes<HTMLUListElement>;
@@ -11,5 +11,5 @@ export type Tag = {
 
 export interface Props extends Default {
   list: Tag[],
-  type?: Type
+  type?: TagType
 }
