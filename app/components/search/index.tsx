@@ -8,7 +8,10 @@ import Input from '../input';
 import useSearchState from '~/context/search/hooks/use-search-state';
 import useSearchActions from '~/context/search/hooks/use-search-actions';
 
-const Search: FC = () => {
+// Types
+import type { Props } from './types';
+
+const Search: FC<Props> = ({ className }) => {
   const search = useSearchState();
   const setSearch = useSearchActions();
 
@@ -18,7 +21,7 @@ const Search: FC = () => {
     }
   }, [setSearch]);
 
-  return <Input placeholder="Search..." onChange={onChangeSearch} value={search} />
+  return <Input className={className} placeholder="Search..." onChange={onChangeSearch} value={search} />
 }
 
 export default Search;
