@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-type Default = HTMLAttributes<HTMLDivElement>;
+type Default = HTMLAttributes<HTMLElement>;
 
 export type MenuItem = {
   link: string;
