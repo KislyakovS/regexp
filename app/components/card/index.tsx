@@ -49,8 +49,14 @@ const Card: FC<Props> = ({ className, title, regexp, example, tags }) => {
         <span className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">{title}</span>
       </div>
       <div className="p-5 flex flex-col gap-5">
-        <Input defaultValue={regexp} readOnly isCopy={true} className="text-center" />
-        <Input placeholder={example} value={value} onChange={onChangeInput} className="text-center" />
+        <label className="w-full">
+          <span className="visually-hidden">Regular expression</span>
+          <Input defaultValue={regexp} readOnly isCopy={true} className="text-center w-full" />
+        </label>
+        <label className="w-full">
+          <span className="visually-hidden">Value</span>
+          <Input placeholder={example} value={value} onChange={onChangeInput} className="text-center w-full" />
+        </label>
         <div>
           {firstTags.length !== 0 && <Tags list={firstTags} />}
           {result.length !== 0 && <Tags className="mt-3" type={TagType.PRIMARY} list={result} />}
